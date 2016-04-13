@@ -2,7 +2,7 @@
   "name": "hyperlink-hyperclick",
   "author": "Tony Brix",
   "main": "./lib/main",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Plugin for the Atom Hyperclick package",
   "repository": "https://github.com/UziTech/hyperlink-hyperclick",
   "engines": {

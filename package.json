@@ -1,19 +1,19 @@
 {
-	"name": "hyperlink-hyperclick",
-	"author": "Tony Brix",
-	"main": "./lib/main",
-	"version": "1.1.0",
-	"description": "Hyperlink plugin for the Atom Hyperclick package",
-	"repository": "https://github.com/UziTech/hyperlink-hyperclick",
-	"license": "MIT",
-	"engines": {
-		"atom": ">=1.0.0"
-	},
-	"providedServices": {
-		"hyperclick.provider": {
-			"versions": {
-				"0.0.0": "getProvider"
-			}
-		}
-	}
+  "name": "hyperlink-hyperclick",
+  "author": "Tony Brix",
+  "main": "./lib/main",
+  "version": "1.2.0",
+  "description": "Hyperlink plugin for the Atom Hyperclick package",
+  "repository": "https://github.com/UziTech/hyperlink-hyperclick",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0"
+  },
+  "providedServices": {
+    "hyperclick.provider": {
+      "versions": {
+        "0.0.0": "getProvider"
+      }
+    }
+  }
 }

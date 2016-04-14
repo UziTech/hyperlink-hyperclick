@@ -15,8 +15,5 @@
 				"0.0.0": "getProvider"
 			}
 		}
-	},
-	"dependencies": {
-		"first-mate": "^5.1.1"
 	}
 }

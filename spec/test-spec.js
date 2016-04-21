@@ -36,9 +36,7 @@ describe("hyperlink-hyperclick", () => {
 		});
 
 		waitsForPromise(() => {
-			const activationPromise = atom.packages.activatePackage("link");
-			atom.commands.dispatch(atom.views.getView(atom.workspace), "link:open");
-			return activationPromise;
+			return atom.packages.activatePackage("hyperlink-hyperclick");
 		});
 
 		waitsForPromise(() => {

@@ -1,5 +1,7 @@
 # Hyperlink Hyperclick
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/UziTech/hyperlink-hyperclick.svg)](https://greenkeeper.io/)
+
 This is a provider for [Hyperclick][1].
 `<cmd-click>` on a link to open it in your default browser.
 

@@ -51,19 +51,19 @@ describe("hyperlink-hyperclick", () => {
 
 	it("http is valid", () => {
 		atom.config.set("hyperlink-hyperclick.protocols", ["http"]);
-		textEditor.setText("<http://test.com>");
+		textEditor.setText("<http://example.com>");
 		const range = new Range([0, 1], [0, 2]);
 		const suggestion = getSuggestionForWord(textEditor, null, range);
 		callSuggestion(suggestion);
 
-		expect(checkRange(suggestion, [[0, 1], [0, 16]])).toBe(true);
+		expect(checkRange(suggestion, [[0, 1], [0, 19]])).toBe(true);
 		expect(shell.openExternal).toHaveBeenCalled();
-		expect(shell.openExternal.argsForCall[0][0]).toBe("http://test.com");
+		expect(shell.openExternal.argsForCall[0][0]).toBe("http://example.com");
 	});
 
 	it("http is not valid", () => {
 		atom.config.set("hyperlink-hyperclick.protocols", ["https"]);
-		textEditor.setText("<http://test.com>");
+		textEditor.setText("<http://example.com>");
 		const range = new Range([0, 1], [0, 2]);
 		const suggestion = getSuggestionForWord(textEditor, null, range);
 		callSuggestion(suggestion);
@@ -73,14 +73,14 @@ describe("hyperlink-hyperclick", () => {
 
 	it("any configured protocol is valid", () => {
 		atom.config.set("hyperlink-hyperclick.protocols", ["test"]);
-		textEditor.setText("test://test.com");
+		textEditor.setText("test://example.com");
 		const range = new Range([0, 0], [0, 1]);
 		const suggestion = getSuggestionForWord(textEditor, null, range);
 		callSuggestion(suggestion);
 
-		expect(checkRange(suggestion, [[0, 0], [0, 15]])).toBe(true);
+		expect(checkRange(suggestion, [[0, 0], [0, 18]])).toBe(true);
 		expect(shell.openExternal).toHaveBeenCalled();
-		expect(shell.openExternal.argsForCall[0][0]).toBe("test://test.com");
+		expect(shell.openExternal.argsForCall[0][0]).toBe("test://example.com");
 	});
 
 	it("text is not valid", () => {

@@ -2,13 +2,9 @@
 /* global atom, waitsForPromise */
 /* eslint-env jasmine */
 
-const {
-	Range
-} = require("atom");
+const {Range} = require("atom");
 const shell = require("shell");
-const {
-	getSuggestionForWord
-} = require("../lib/main.js").getProvider();
+const {getSuggestionForWord} = require("../lib/main.js").getProvider();
 
 function callSuggestion(suggestion) {
 	if (suggestion && suggestion.callback) {
@@ -103,5 +99,17 @@ describe("hyperlink-hyperclick", () => {
 		expect(checkRange(suggestion, [[0, 7], [0, 8]])).toBe(true);
 		expect(shell.openExternal).toHaveBeenCalled();
 		expect(shell.openExternal.argsForCall[0][0]).toBe("http://test.com");
+	});
+
+	it("checks for a link in the middle of the token", () => {
+		atom.config.set("hyperlink-hyperclick.protocols", ["test"]);
+		textEditor.setText("a test://example.com");
+		const range = new Range([0, 2], [0, 3]);
+		const suggestion = getSuggestionForWord(textEditor, null, range);
+		callSuggestion(suggestion);
+
+		expect(checkRange(suggestion, [[0, 2], [0, 20]])).toBe(true);
+		expect(shell.openExternal).toHaveBeenCalled();
+		expect(shell.openExternal.argsForCall[0][0]).toBe("test://example.com");
 	});
 });

@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/UziTech/hyperlink-hyperclick.svg?branch=master)](https://travis-ci.org/UziTech/hyperlink-hyperclick)
+[![Build status](https://ci.appveyor.com/api/projects/status/428nmfp4j99ck7tw?svg=true)](https://ci.appveyor.com/project/UziTech/hyperlink-hyperclick)
+
 # Hyperlink Hyperclick
 
 This is a provider for [Hyperclick][1].

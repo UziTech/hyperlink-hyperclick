@@ -9,7 +9,7 @@
 	},
 	"parserOptions": {
 		"sourceType": "module",
-		"ecmaVersion": 7,
+		"ecmaVersion": 8,
 		"ecmaFeatures": {
 			"jsx": true,
 			"impliedStrict": true,

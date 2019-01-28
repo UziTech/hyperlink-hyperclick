@@ -87,7 +87,6 @@
 		"linebreak-style": 2,
 		"lines-around-comment": 2,
 		"lines-between-class-members": 2,
-		"multiline-comment-style": 1,
 		"new-parens": 2,
 		"no-array-constructor": 2,
 		"no-whitespace-before-property": 2,

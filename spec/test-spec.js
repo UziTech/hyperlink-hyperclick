@@ -110,4 +110,64 @@ describe("hyperlink-hyperclick", function () {
 		expect(shell.openExternal).toHaveBeenCalled();
 		expect(shell.openExternal.calls.mostRecent().args[0]).toBe("test://example.com");
 	});
+
+	it("matches a url with matching parentheses", function () {
+		atom.config.set("hyperlink-hyperclick.protocols", ["http"]);
+		this.textEditor.setText("http://example.com/test()_(parens)");
+		const range = new Range([0, 0], [0, 34]);
+		const suggestion = getSuggestionForWord(this.textEditor, null, range);
+		callSuggestion(suggestion);
+
+		expect(suggestion).toHaveRange([[0, 0], [0, 34]]);
+		expect(shell.openExternal).toHaveBeenCalled();
+		expect(shell.openExternal.calls.mostRecent().args[0]).toBe("http://example.com/test()_(parens)");
+	});
+
+	it("matches the correct url", function () {
+		atom.config.set("hyperlink-hyperclick.protocols", ["http"]);
+		this.textEditor.setText("http://example1.com http://example2.com");
+		const range = new Range([0, 27], [0, 39]);
+		const suggestion = getSuggestionForWord(this.textEditor, null, range);
+		callSuggestion(suggestion);
+
+		expect(suggestion).toHaveRange([[0, 20], [0, 39]]);
+		expect(shell.openExternal).toHaveBeenCalled();
+		expect(shell.openExternal.calls.mostRecent().args[0]).toBe("http://example2.com");
+	});
+
+	it("matches a url with query", function () {
+		atom.config.set("hyperlink-hyperclick.protocols", ["http"]);
+		this.textEditor.setText("http://example.com?test=1");
+		const range = new Range([0, 0], [0, 25]);
+		const suggestion = getSuggestionForWord(this.textEditor, null, range);
+		callSuggestion(suggestion);
+
+		expect(suggestion).toHaveRange([[0, 0], [0, 25]]);
+		expect(shell.openExternal).toHaveBeenCalled();
+		expect(shell.openExternal.calls.mostRecent().args[0]).toBe("http://example.com?test=1");
+	});
+
+	it("matches a url with query after path", function () {
+		atom.config.set("hyperlink-hyperclick.protocols", ["http"]);
+		this.textEditor.setText("http://example.com/test/?test=1");
+		const range = new Range([0, 0], [0, 31]);
+		const suggestion = getSuggestionForWord(this.textEditor, null, range);
+		callSuggestion(suggestion);
+
+		expect(suggestion).toHaveRange([[0, 0], [0, 31]]);
+		expect(shell.openExternal).toHaveBeenCalled();
+		expect(shell.openExternal.calls.mostRecent().args[0]).toBe("http://example.com/test/?test=1");
+	});
+
+	it("matches a url with query after extension", function () {
+		atom.config.set("hyperlink-hyperclick.protocols", ["http"]);
+		this.textEditor.setText("http://example.com/test.php?test=1");
+		const range = new Range([0, 0], [0, 34]);
+		const suggestion = getSuggestionForWord(this.textEditor, null, range);
+		callSuggestion(suggestion);
+
+		expect(suggestion).toHaveRange([[0, 0], [0, 34]]);
+		expect(shell.openExternal).toHaveBeenCalled();
+		expect(shell.openExternal.calls.mostRecent().args[0]).toBe("http://example.com/test.php?test=1");
+	});
 });

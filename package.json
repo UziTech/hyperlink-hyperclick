@@ -18,8 +18,8 @@
     }
   },
   "devDependencies": {
-    "atom-jasmine3-test-runner": "^4.0.0",
-    "eslint": "^5.3.0"
+    "atom-jasmine3-test-runner": "^4.1.2",
+    "eslint": "^5.12.1"
   },
   "scripts": {
     "lint": "eslint ."

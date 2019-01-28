@@ -1,3 +1,7 @@
+## [v3.0.0](https://github.com/UziTech/hyperlink-hyperclick/compare/v2.0.0...v3.0.0) - 2019-01-28
+
+- Use line text instead of relying on language-hyperlink token
+
 ## [v2.0.0](https://github.com/UziTech/hyperlink-hyperclick/compare/v1.3.4...v2.0.0) - 2018-03-13
 
 - Add `atom://` as a default protocol

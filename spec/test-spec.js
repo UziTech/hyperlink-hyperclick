@@ -45,10 +45,7 @@ describe("hyperlink-hyperclick", function () {
 
 	});
 
-	it("matches a valid http hyperlink", async function () {
-
-		await atom.packages.activatePackage("language-hyperlink");
-		atom.config.set("hyperlink-hyperclick.protocols", []);
+	it("matches a valid http hyperlink", function () {
 		this.textEditor.setText("<http://example.com>");
 		const range = new Range([0, 1], [0, 2]);
 		const suggestion = getSuggestionForWord(this.textEditor, null, range);
@@ -88,7 +85,6 @@ describe("hyperlink-hyperclick", function () {
 	});
 
 	it("matches gfm link", function () {
-		atom.config.set("hyperlink-hyperclick.protocols", []);
 		this.textEditor.setText("[test][link]\n\n[link]: http://test.com");
 		const range = new Range([0, 7], [0, 8]);
 		const suggestion = getSuggestionForWord(this.textEditor, null, range);
@@ -100,7 +96,6 @@ describe("hyperlink-hyperclick", function () {
 	});
 
 	it("matches a url in the middle of a string", function () {
-		atom.config.set("hyperlink-hyperclick.protocols", []);
 		this.textEditor.setText("a test://example.com a");
 		const range = new Range([0, 2], [0, 3]);
 		const suggestion = getSuggestionForWord(this.textEditor, null, range);
@@ -112,7 +107,6 @@ describe("hyperlink-hyperclick", function () {
 	});
 
 	it("matches a url with matching parentheses", function () {
-		atom.config.set("hyperlink-hyperclick.protocols", []);
 		this.textEditor.setText("http://example.com/test()_(parens)");
 		const range = new Range([0, 0], [0, 1]);
 		const suggestion = getSuggestionForWord(this.textEditor, null, range);
@@ -124,7 +118,6 @@ describe("hyperlink-hyperclick", function () {
 	});
 
 	it("does not match unmatched parentheses", function () {
-		atom.config.set("hyperlink-hyperclick.protocols", []);
 		this.textEditor.setText("(http://example.com/test()_(parens))");
 		const range = new Range([0, 1], [0, 2]);
 		const suggestion = getSuggestionForWord(this.textEditor, null, range);
@@ -136,7 +129,6 @@ describe("hyperlink-hyperclick", function () {
 	});
 
 	it("matches the correct url", function () {
-		atom.config.set("hyperlink-hyperclick.protocols", []);
 		this.textEditor.setText("http://example1.com http://example2.com http://example3.com");
 		const range = new Range([0, 26], [0, 29]);
 		const suggestion = getSuggestionForWord(this.textEditor, null, range);
@@ -148,7 +140,6 @@ describe("hyperlink-hyperclick", function () {
 	});
 
 	it("matches a url with authentication", function () {
-		atom.config.set("hyperlink-hyperclick.protocols", []);
 		this.textEditor.setText("http://user:pass@example.com");
 		const range = new Range([0, 0], [0, 1]);
 		const suggestion = getSuggestionForWord(this.textEditor, null, range);
@@ -160,7 +151,6 @@ describe("hyperlink-hyperclick", function () {
 	});
 
 	it("matches a url with query", function () {
-		atom.config.set("hyperlink-hyperclick.protocols", []);
 		this.textEditor.setText("http://example.com?test=1");
 		const range = new Range([0, 0], [0, 1]);
 		const suggestion = getSuggestionForWord(this.textEditor, null, range);
@@ -172,7 +162,6 @@ describe("hyperlink-hyperclick", function () {
 	});
 
 	it("matches a url with query after path", function () {
-		atom.config.set("hyperlink-hyperclick.protocols", []);
 		this.textEditor.setText("http://example.com/test/?test=1");
 		const range = new Range([0, 0], [0, 1]);
 		const suggestion = getSuggestionForWord(this.textEditor, null, range);
@@ -184,7 +173,6 @@ describe("hyperlink-hyperclick", function () {
 	});
 
 	it("matches a url with query after extension", function () {
-		atom.config.set("hyperlink-hyperclick.protocols", []);
 		this.textEditor.setText("http://example.com/test.php?test=1");
 		const range = new Range([0, 0], [0, 1]);
 		const suggestion = getSuggestionForWord(this.textEditor, null, range);
@@ -196,7 +184,6 @@ describe("hyperlink-hyperclick", function () {
 	});
 
 	it("matches a url with hash", function () {
-		atom.config.set("hyperlink-hyperclick.protocols", []);
 		this.textEditor.setText("http://example.com#test");
 		const range = new Range([0, 0], [0, 1]);
 		const suggestion = getSuggestionForWord(this.textEditor, null, range);
@@ -208,7 +195,6 @@ describe("hyperlink-hyperclick", function () {
 	});
 
 	it("matches a mailto url", function () {
-		atom.config.set("hyperlink-hyperclick.protocols", []);
 		this.textEditor.setText("mailto:example@example.com?subject=1&message=2");
 		const range = new Range([0, 0], [0, 1]);
 		const suggestion = getSuggestionForWord(this.textEditor, null, range);

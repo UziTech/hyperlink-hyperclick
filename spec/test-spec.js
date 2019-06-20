@@ -204,4 +204,26 @@ describe("hyperlink-hyperclick", function () {
 		expect(shell.openExternal).toHaveBeenCalled();
 		expect(shell.openExternal.calls.mostRecent().args[0]).toBe("mailto:example@example.com?subject=1&message=2");
 	});
+
+	it("matches a url with port", function () {
+		this.textEditor.setText("http://site.com:8080/app");
+		const range = new Range([0, 0], [0, 1]);
+		const suggestion = getSuggestionForWord(this.textEditor, null, range);
+		callSuggestion(suggestion);
+
+		expect(suggestion).toHaveRange([[0, 0], [0, 24]]);
+		expect(shell.openExternal).toHaveBeenCalled();
+		expect(shell.openExternal.calls.mostRecent().args[0]).toBe("http://site.com:8080/app");
+	});
+
+	it("matches a url with port hovering over port", function () {
+		this.textEditor.setText("http://site.com:8080/app");
+		const range = new Range([0, 17], [0, 18]);
+		const suggestion = getSuggestionForWord(this.textEditor, null, range);
+		callSuggestion(suggestion);
+
+		expect(suggestion).toHaveRange([[0, 0], [0, 24]]);
+		expect(shell.openExternal).toHaveBeenCalled();
+		expect(shell.openExternal.calls.mostRecent().args[0]).toBe("http://site.com:8080/app");
+	});
 });

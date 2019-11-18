@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/UziTech/hyperlink-hyperclick/compare/v3.0.0...v3.0.1) (2019-11-18)
+
+
+### Bug Fixes
+
+* use actions ([beabe0e](https://github.com/UziTech/hyperlink-hyperclick/commit/beabe0e7c8e2e0dce637fad1af41e5c22e469d17))
+
 ## [v3.0.0](https://github.com/UziTech/hyperlink-hyperclick/compare/v2.0.0...v3.0.0) - 2019-01-28
 
 - Use line text instead of relying on language-hyperlink token

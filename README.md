@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/UziTech/hyperlink-hyperclick.svg?branch=master)](https://travis-ci.org/UziTech/hyperlink-hyperclick)
-[![Build status](https://ci.appveyor.com/api/projects/status/428nmfp4j99ck7tw/branch/master?svg=true)](https://ci.appveyor.com/project/UziTech/hyperlink-hyperclick)
+[![Actions Status](https://github.com/UziTech/hyperlink-hyperclick/workflows/CI/badge.svg)](https://github.com/UziTech/hyperlink-hyperclick/actions)
 
 # Hyperlink Hyperclick
 

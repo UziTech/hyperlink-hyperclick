@@ -11,8 +11,7 @@
   },
   "scripts": {
     "test": "atom --test spec",
-    "lint": "eslint .",
-    "semantic-release": "semantic-release"
+    "lint": "eslint ."
   },
   "atomTestRunner": "atom-jasmine3-test-runner",
   "providedServices": {

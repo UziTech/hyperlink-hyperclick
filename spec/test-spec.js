@@ -1,7 +1,7 @@
 "use babel";
 
 const {Range} = require("atom");
-const shell = require("shell");
+const {shell} = require("electron");
 const {getSuggestionForWord} = require("../lib/main.js").getProvider();
 
 function callSuggestion(suggestion) {

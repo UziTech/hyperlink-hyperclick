@@ -2,7 +2,7 @@
   "name": "hyperlink-hyperclick",
   "author": "Tony Brix",
   "main": "./lib/main",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Hyperlink plugin for the Atom Hyperclick package",
   "repository": "https://github.com/UziTech/hyperlink-hyperclick",
   "license": "MIT",

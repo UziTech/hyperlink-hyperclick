@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/UziTech/hyperlink-hyperclick/compare/v3.0.1...v3.0.2) (2020-12-16)
+
+
+### Bug Fixes
+
+* use shell from electron ([8e5b586](https://github.com/UziTech/hyperlink-hyperclick/commit/8e5b58679b723f6925cd576b090ba3ad945a20fd))
+
 ## [3.0.1](https://github.com/UziTech/hyperlink-hyperclick/compare/v3.0.0...v3.0.1) (2019-11-18)
 
 
